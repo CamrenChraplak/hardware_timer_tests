@@ -1,0 +1,38 @@
+;	platformio.ini - configurations for selected board
+;	Copyright (C) 2025 Camren Chraplak
+;
+;	This program is free software: you can redistribute it and/or modify
+;	it under the terms of the GNU General Public License as published by
+;	the Free Software Foundation, either version 3 of the License, or
+;	(at your option) any later version.
+;
+;	This program is distributed in the hope that it will be useful,
+;	but WITHOUT ANY WARRANTY; without even the implied warranty of
+;	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;	GNU General Public License for more details.
+;
+;	You should have received a copy of the GNU General Public License
+;	along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+; PlatformIO Project Configuration File
+;
+;   Build options: build flags, source filter
+;   Upload options: custom upload port, speed and extra flags
+;   Library options: dependencies, extra library storages
+;   Advanced options: extra scripting
+;
+; Please visit documentation for the other options and examples
+; https://docs.platformio.org/page/projectconf.html
+
+[platformio]
+default_envs = test ; replace with desired environment
+
+extra_configs = 
+	ini/default.ini
+
+	ini/avr.ini
+	ini/esp32.ini
+	ini/pico.ini
+
+[env]
+extends = ; replace with desired board
