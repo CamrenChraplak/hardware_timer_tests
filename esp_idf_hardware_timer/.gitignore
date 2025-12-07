@@ -1,0 +1,7 @@
+build/
+.devcontainer
+.vscode
+components/hardware_timer
+dependencies.lock
+sdkconfig
+sdkconfig.old

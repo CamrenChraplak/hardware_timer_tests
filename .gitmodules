@@ -1,0 +1,4 @@
+[submodule "esp_idf_hardware_timer/components/hardware_timer"]
+	path = esp_idf_hardware_timer/components/hardware_timer
+	url = https://github.com/CamrenChraplak/hardware_timer
+	branch = feature/esp-idf-support
