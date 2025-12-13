@@ -23,7 +23,7 @@ if (EXISTS ${picoVscode})
     include(${picoVscode})
 endif()
 # ====================================================================================
-set(PICO_BOARD pico_w CACHE STRING "Board type")
+set(PICO_BOARD pico CACHE STRING "Board type")
 
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
@@ -35,6 +35,7 @@ pico_sdk_init()
 
 # Sub directories for user created libraries
 add_subdirectory(hardware_timer)
+add_subdirectory(Unity)
 
 # Add executable. Default name is the project name, version 0.1
 add_executable(pico_sdk_hardware_timer pico_sdk_hardware_timer.c )
@@ -60,12 +61,16 @@ if(PICO_BOARD STREQUAL "pico_w" OR PICO_BOARD STREQUAL "pico2_w")
     target_link_libraries(pico_sdk_hardware_timer 
             pico_cyw43_arch_none
             custom_hardware_timer
+            unity
             )
 else()
     target_link_libraries(pico_sdk_hardware_timer 
             custom_hardware_timer
+            unity
             )
 endif()
+
+add_compile_definitions(PICO_SDK_UNIT_TESTING=1)
 
 pico_add_extra_outputs(pico_sdk_hardware_timer)
 

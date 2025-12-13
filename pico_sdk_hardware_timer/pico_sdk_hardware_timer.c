@@ -19,11 +19,22 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include <hardware_timer_test.h>
+#include <unity.h>
+
+void setUp(void) {
+	// set stuff up here
+}
+
+void tearDown(void) {
+	// clean stuff up here
+}
 
 int main() {
 	stdio_init_all();
-	sleep_ms(2000);
+	sleep_ms(5000);
 
 	// tests timers
+	UNITY_BEGIN();
 	testTimers();
+	UNITY_END();
 }

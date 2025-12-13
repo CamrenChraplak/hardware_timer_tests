@@ -2,3 +2,6 @@
 	path = esp_idf_hardware_timer/components/hardware_timer
 	url = https://github.com/CamrenChraplak/hardware_timer
 	branch = feature/esp-idf-support
+[submodule "pico_sdk_hardware_timer/Unity"]
+	path = pico_sdk_hardware_timer/Unity
+	url = https://github.com/ThrowTheSwitch/Unity
