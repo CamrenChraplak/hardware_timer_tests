@@ -17,7 +17,7 @@
 */
 
 #include <unity.h>
-#include <hardware_timer_test.h>
+#include <universal_hardware_timer_test.h>
 
 
 TEST_CASE("Timer Tests", "[timer]") {

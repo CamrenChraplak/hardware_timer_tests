@@ -22,18 +22,7 @@ cmake_minimum_required(VERSION 3.5)
 add_compile_definitions(ESP32=1)
 add_compile_definitions(ESP_IDF_UNIT_TESTING=1)
 
-include_directories(${CMAKE_CURRENT_LIST_DIR}/../components/hardware_timer/include)
-include_directories(${CMAKE_CURRENT_LIST_DIR}/../components/hardware_timer/src)
-
-# Add newly added components to one of these lines:
-# 1. Add here if the component is compatible with IDF >= v4.3
 set(EXTRA_COMPONENT_DIRS "../components")
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(unit_test)
-
-set(EXTRA_COMPONENT_DIRS 
-    Core 
-    UnityTests
-	lib_esp32
-)

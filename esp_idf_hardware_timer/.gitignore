@@ -1,7 +1,7 @@
 build/
 .devcontainer
 .vscode
-components/hardware_timer
+components/*
 dependencies.lock
 sdkconfig
 sdkconfig.old

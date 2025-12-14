@@ -34,13 +34,13 @@ project(pico_sdk_hardware_timer C CXX ASM)
 pico_sdk_init()
 
 # Sub directories for user created libraries
-add_subdirectory(hardware_timer)
+add_subdirectory(universal_hardware_timer)
 add_subdirectory(Unity)
 
 # Add the standard library to the build
 link_libraries(
     pico_stdlib
-    custom_hardware_timer
+    universal_hardware_timer
 )
 
 # sets up environment

@@ -18,7 +18,7 @@
 
 #include <stdio.h>
 #include "pico/stdlib.h"
-#include <hardware_timer_test.h>
+#include <universal_hardware_timer_test.h>
 
 #ifdef PICO_SDK_UNIT_TESTING
 	#include <unity.h>

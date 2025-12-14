@@ -17,11 +17,7 @@
 */
 
 #include <stdio.h>
-#include <freertos/FreeRTOS.h>
-#include <freertos/task.h>
-#include <hardware_timer_test.h>
-
-#define DELAY_MS 2000
+#include <universal_hardware_timer_test.h>
 
 void app_main(void) {
 	// tests timers

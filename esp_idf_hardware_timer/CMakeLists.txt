@@ -21,12 +21,5 @@ cmake_minimum_required(VERSION 3.5)
 
 add_compile_definitions(ESP32=1)
 
-include_directories(${CMAKE_CURRENT_LIST_DIR}/components/hardware_timer/include)
-include_directories(${CMAKE_CURRENT_LIST_DIR}/components/hardware_timer/src)
-
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 project(main)
-
-set(EXTRA_COMPONENT_DIRS 
-    hardware_timer
-)

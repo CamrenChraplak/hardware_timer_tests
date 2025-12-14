@@ -17,7 +17,7 @@
 */
 
 #include <Arduino.h>
-#include <hardware_timer_test.h>
+#include <universal_hardware_timer_test.h>
 #include <unity.h>
 
 void setUp(void) {
