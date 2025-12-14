@@ -1,5 +1,5 @@
 /*
-	main.cpp - entry point
+	arduino_ide_hardware_timer.ino - entry point
 	Copyright (C) 2025 Camren Chraplak
 
 	This program is free software: you can redistribute it and/or modify
@@ -20,8 +20,7 @@
 #include <universal_hardware_timer_test.h>
 
 void setup() {
-
-	// sets serial connection
+  // sets serial connection
 	Serial.begin(115200);
 	while (!Serial) {
 		delay(1000);
@@ -31,7 +30,7 @@ void setup() {
 	delay(2000);
 	testTimers();
 }
-
+ 
 void loop() {
-	delay(1000);
+  delay(1000);
 }
