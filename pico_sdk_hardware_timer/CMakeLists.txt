@@ -37,40 +37,54 @@ pico_sdk_init()
 add_subdirectory(hardware_timer)
 add_subdirectory(Unity)
 
-# Add executable. Default name is the project name, version 0.1
-add_executable(pico_sdk_hardware_timer pico_sdk_hardware_timer.c )
-
-pico_set_program_name(pico_sdk_hardware_timer "pico_sdk_hardware_timer")
-pico_set_program_version(pico_sdk_hardware_timer "0.1")
-
-# Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(pico_sdk_hardware_timer 0)
-pico_enable_stdio_usb(pico_sdk_hardware_timer 1)
-
 # Add the standard library to the build
-target_link_libraries(pico_sdk_hardware_timer
-        pico_stdlib)
-
-# Add the standard include files to the build
-target_include_directories(pico_sdk_hardware_timer PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}
+link_libraries(
+    pico_stdlib
+    custom_hardware_timer
 )
 
-# Add any user requested libraries
+# sets up environment
+# @param CONFIG_NAME name of cmake configuration
+function(CONFIG_ENV CONFIG_NAME)
+    add_executable(${CONFIG_NAME} main.c )
+    pico_set_program_name(${CONFIG_NAME} "${CONFIG_NAME}_sdk_hardware_timer")
+    pico_set_program_version(${CONFIG_NAME} "0.1")
+
+    # Modify the below lines to enable/disable output over UART/USB
+    pico_enable_stdio_usb(${CONFIG_NAME} 1)
+
+    # Add the standard include files to the build
+    target_include_directories(${CONFIG_NAME} PRIVATE
+        ${CMAKE_CURRENT_LIST_DIR}
+    )
+
+    pico_add_extra_outputs(${CONFIG_NAME})
+endfunction()
+
+# sets up Unity environment
+# @param CONFIG_NAME name of cmake configuration
+function(CONFIG_UNITY CONFIG_NAME)
+    target_link_libraries(${CONFIG_NAME}
+        unity
+    )
+    target_compile_definitions(${CONFIG_NAME} PRIVATE
+        PICO_SDK_UNIT_TESTING=1
+    )
+endfunction()
+
+# sets up wireless environment environment
+# @param CONFIG_NAME name of cmake configuration
+function(CONFIG_WIRELESS CONFIG_NAME)
+    target_link_libraries(${CONFIG_NAME} 
+        pico_cyw43_arch_none
+    )
+endfunction()
+
+# sets up testing environment
+CONFIG_ENV(pico_hardware_timer)
 if(PICO_BOARD STREQUAL "pico_w" OR PICO_BOARD STREQUAL "pico2_w")
-    target_link_libraries(pico_sdk_hardware_timer 
-            pico_cyw43_arch_none
-            custom_hardware_timer
-            unity
-            )
-else()
-    target_link_libraries(pico_sdk_hardware_timer 
-            custom_hardware_timer
-            unity
-            )
+    CONFIG_WIRELESS(pico_hardware_timer)
 endif()
 
-add_compile_definitions(PICO_SDK_UNIT_TESTING=1)
-
-pico_add_extra_outputs(pico_sdk_hardware_timer)
-
+# configures Unity
+CONFIG_UNITY(pico_hardware_timer) # comment out to not use Unity

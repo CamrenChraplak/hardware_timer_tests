@@ -1,5 +1,5 @@
 /*
-	pico_sdk_hardware_timer.c - entry point for code
+	main.c - entry point for code
 	Copyright (C) 2025 Camren Chraplak
 
 	This program is free software: you can redistribute it and/or modify
@@ -19,7 +19,10 @@
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include <hardware_timer_test.h>
-#include <unity.h>
+
+#ifdef PICO_SDK_UNIT_TESTING
+	#include <unity.h>
+#endif
 
 void setUp(void) {
 	// set stuff up here
@@ -34,7 +37,11 @@ int main() {
 	sleep_ms(5000);
 
 	// tests timers
-	UNITY_BEGIN();
-	testTimers();
-	UNITY_END();
+	#ifdef PICO_SDK_UNIT_TESTING
+		UNITY_BEGIN();
+		testTimers();
+		UNITY_END();
+	#else
+		testTimers();
+	#endif
 }
