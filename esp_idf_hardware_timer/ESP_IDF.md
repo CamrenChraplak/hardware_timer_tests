@@ -7,6 +7,7 @@ This test environment uses [ESP-IDF](https://docs.espressif.com/projects/esp-idf
 TODO: Switching between platforms<br>
 TODO: Using command line
 
+- Run `git submodule update --init` in root folder to download `universal_hardware_timer`
 - Build and run on chosen platform
   - Run through main project
     - Press the `Build Project` ESP-IDF button to compile project

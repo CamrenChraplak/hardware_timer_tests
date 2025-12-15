@@ -4,6 +4,7 @@ This test environment uses [Raspberry Pi Pico SDK](https://www.raspberrypi.com/d
 
 ## Setup:
 
+- Run `git submodule update --init` in root folder to download `Unity` and `universal_hardware_timer`
 - Copy and rename either `CMakeLists_non_unity.txt` or `CMakeLists_unity.txt` to `CMakeLists.txt`
   - The VSCode `Raspberry Pi Pico` extension won't load a project until it locates a `CMakeLists.txt`
 - Select the board type of the pico
