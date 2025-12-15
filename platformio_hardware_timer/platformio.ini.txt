@@ -25,7 +25,8 @@
 ; https://docs.platformio.org/page/projectconf.html
 
 [platformio]
-default_envs = test ; replace with desired environment
+; replace 'test' with desired environment
+default_envs = test
 
 extra_configs = 
 	ini/default.ini
@@ -35,4 +36,9 @@ extra_configs =
 	ini/pico.ini
 
 [env]
-extends = ; replace with desired board
+; replace 'uno' with desired board
+extends = uno
+
+[env:release]
+
+[env:test]
