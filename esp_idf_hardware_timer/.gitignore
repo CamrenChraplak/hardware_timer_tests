@@ -1,7 +1,6 @@
 build/
 .devcontainer
 .vscode
-components/*
 dependencies.lock
 sdkconfig
 sdkconfig.old
